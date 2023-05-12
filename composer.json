@@ -1,7 +1,8 @@
 {
     "name": "daniel/kata-pairer",
     "require-dev": {
-        "phpunit/phpunit": "^10.1"
+        "phpunit/phpunit": "^10.1",
+        "symfony/var-dumper": "^6.2"
     },
     "autoload": {
         "psr-4": {
@@ -12,6 +13,5 @@
         "psr-4": {
             "Daniel\\KataPairer\\Tests\\": "tests/"
         }
-    },
-    "require": {}
+    }
 }

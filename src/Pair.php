@@ -12,4 +12,14 @@ final class Pair
     {
         return new Pair($driver, $navigator);
     }
+
+    public function switchRoles(): self
+    {
+        return new Pair($this->navigator, $this->driver);
+    }
+
+    public function withNavigator(string $newNavigator): self
+    {
+        return new self($this->driver, $newNavigator);
+    }
 }

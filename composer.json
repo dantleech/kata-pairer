@@ -1,0 +1,17 @@
+{
+    "name": "daniel/kata-pairer",
+    "require-dev": {
+        "phpunit/phpunit": "^10.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Daniel\\KataPairer\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Daniel\\KataPairer\\Tests\\": "tests/"
+        }
+    },
+    "require": {}
+}

@@ -11,7 +11,6 @@ class Pairer
     {
         $round = $round->switchRoles();
         $navigators = $round->navigators();
-        $newPairs = [];
         $offset = 1;
         $pairs = [];
         foreach ($round as $pair) {

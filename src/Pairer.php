@@ -4,9 +4,6 @@ namespace Daniel\KataPairer;
 
 class Pairer
 {
-    /**
-     * @param Round $round1
-     */
     public function round2(Round $round): Round
     {
         $round = $round->switchRoles();

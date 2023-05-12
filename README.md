@@ -1,7 +1,7 @@
 Kata Pairer
 ===========
 
-Small utility to generate ronud 1 and round 2 driver/navigator pairs for code katas.
+Small utility to generate ronud 1 and round 2 driver/navigator pairs for [code katas](https://github.com/gamontal/awesome-katas/blob/master/README.md#introduction).
 
 ## Installation
 

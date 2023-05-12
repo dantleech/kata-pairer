@@ -4,6 +4,7 @@ namespace Daniel\KataPairer;
 
 use ArrayIterator;
 use IteratorAggregate;
+use RuntimeException;
 use Traversable;
 /**
  * @implements IteratorAggregate<int,Pair>
@@ -48,5 +49,23 @@ final class Round implements IteratorAggregate
     public function getIterator(): Traversable
     {
         return new ArrayIterator($this->pairs);
+    }
+
+    public static function fromCsv(string $input): Round
+    {
+        $pairs = [];
+        foreach (explode("\n", trim($input)) as $line) {
+            if (!$line) {
+                continue;
+            }
+            $pair = explode(',', $line);
+            if (count($pair) !== 2) {
+                throw new RuntimeException(sprintf(
+                    'Failed to parse: got: %s', $line
+                ));
+            }
+            $pairs[] = Pair::create($pair[0], $pair[1]);
+        }
+        return Round::create(...$pairs);
     }
 }

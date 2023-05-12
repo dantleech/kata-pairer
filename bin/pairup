@@ -1,0 +1,41 @@
+#!/usr/bin/env php
+<?php
+
+use Daniel\KataPairer\Round;
+
+use Daniel\KataPairer\Pairer;
+use Symfony\Component\Console\Helper\Table;
+use Symfony\Component\Console\Output\ConsoleOutput;
+
+require __DIR__ . '/../vendor/autoload.php';
+
+$input = stream_get_contents(STDIN);
+
+$round1 = Round::fromCsv($input);
+$round2 = (new Pairer())->round2($round1);
+
+$output = new ConsoleOutput();
+$output->writeln('Round 1');
+$output->writeln('=======');
+$output->writeln("");
+render_round($output, $round1);
+$output->writeln("\n");
+$output->writeln('Round 2');
+$output->writeln('=======');
+$output->writeln("");
+render_round($output, $round2);
+$output->writeln("");
+
+function render_round(ConsoleOutput $output, Round $round): void {
+    $table = new Table($output);
+    $table->setHeaders(['Driver', 'Navigator']);
+    foreach ($round as $pair) {
+        $table->addRow([
+            $pair->driver,
+            $pair->navigator,
+        ]);
+    }
+    $table->render($output);
+}
+
+

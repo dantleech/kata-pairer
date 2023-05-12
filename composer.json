@@ -13,5 +13,8 @@
         "psr-4": {
             "Daniel\\KataPairer\\Tests\\": "tests/"
         }
+    },
+    "require": {
+        "symfony/console": "^6.2"
     }
 }
